@@ -5,7 +5,7 @@ var values = [100, 40, 60, 80, 75, 25, 10, 30];
 var clicks = 0;
 
 function removeAllChilds() {
-  document.getElementById("data-container").innerHTML = "";
+  document.getElementById("data-container").innerHTML = " ";
 }
 
 function bubbleSort() {

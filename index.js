@@ -4,10 +4,6 @@ const TOTAL_VALUE = 400;
 var values = [100, 40, 60, 80, 75, 25, 10, 30];
 var clicks = 0;
 
-function removeAllChilds() {
-  document.getElementById("data-container").innerHTML = "";
-}
-
 function bubbleSort() {
   var aux;
   for (let i = 0; i < clicks; i++) {
@@ -23,7 +19,6 @@ function bubbleSort() {
 }
 
 function updateGraphic() {
-  removeAllChilds();
   values.forEach((bar) => {
     let b = document.createElement("div");
     let height = (bar * 100) / TOTAL_VALUE;

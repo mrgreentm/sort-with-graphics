@@ -1,5 +1,7 @@
 const bubbleSortForm = document.getElementById("bubble-sort-form");
 const selectionSortForm = document.getElementById("selection-sort-form");
+const myAudio = document.getElementById("myAudio");
+
 const TOTAL_VALUE = 400;
 var globalValues = [100, 40, 60, 80, 75, 25, 10, 30];
 var values = {
@@ -51,7 +53,6 @@ function updateGraphic(algoritm) {
     if (height > 100) height = 100;
     b.style.height = height + "%";
     b.classList.add("bar");
-    console.log(algoritm);
     document.getElementById(algoritm + "-content").appendChild(b);
   });
   if (algoritm == "bubble-sort") {
@@ -67,7 +68,7 @@ const formHandler = (event) => {
   clicks++;
   event.preventDefault();
   updateGraphic(algoritm);
-  updateGraphic();
+  myAudio.play()
   bubbleSortForm.reset();
   selectionSortForm.reset();
 };

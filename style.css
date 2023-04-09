@@ -122,20 +122,42 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 185px;
-    margin: 0 auto;
+body {
+  background-color: #18122b;
 }
-button {
-    width: 100%;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 350px;
+  margin: 0 auto;
+}
+h2 {
+  color: #f5ea5a;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
+button {
+  background-color: #635985;
+  color: #f5ea5a;
+  border: 0 solid #e5e7eb;
+  height: 50px;
+  width: 100%;
+  transition: all 0.3s;
+  margin-left: 2rem;
+}
+button:hover {
+  transform: rotate(2deg);
+  transition: all 0.3s;
+}
+.bubble-sort {
+  width: 350px;
+  margin: 10px;
+}
 .chart-container {
-  width: 400px;
+  width: 85%;
   height: 400px;
   margin: 2rem auto;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -143,6 +165,8 @@ button {
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
+  background-color: #635985;
+  box-shadow: 26px -4px 0px 10px #393053;
 }
 .initial-horizontal-line {
   width: 100%;
@@ -150,15 +174,20 @@ button {
   background-color: #000;
 }
 #data-container {
-    width: 90%;
-    display: flex;
-    gap: 0.5rem;
-    height: 400px;
-    justify-content: center;
-    align-items: flex-end;
+  width: 90%;
+  display: flex;
+  gap: 0.5rem;
+  height: 400px;
+  justify-content: center;
+  align-items: flex-end;
 }
 .bar {
-    background-color: #000;
-    width: 100px;
-    height: 10px;
+  background-color: #f5ea5a;
+  width: 90%;
+  height: 10px;
+}
+@media (max-width: 400px) {
+  .chart-container {
+    box-shadow: 7px -11px 0px 7px #393053;
+  }
 }

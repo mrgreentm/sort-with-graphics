@@ -1,4 +1,4 @@
-const form = document.getElementById("form");
+const form = document.getElementById("form-bubble-sort");
 const value = document.getElementById("value");
 const TOTAL_VALUE = 400;
 var values = [100, 40, 60, 80, 75, 25, 10, 30];

@@ -179,7 +179,7 @@ button:hover {
   height: 1px;
   background-color: #000;
 }
-#data-container {
+.bars-container {
   width: 90%;
   display: flex;
   gap: 0.5rem;

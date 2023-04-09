@@ -1,11 +1,12 @@
-const form = document.getElementById("form-bubble-sort");
-const value = document.getElementById("value");
+const bubbleSortForm = document.getElementById("bubble-sort-form");
+const selectionSortForm = document.getElementById("selection-sort-form");
 const TOTAL_VALUE = 400;
 var values = [100, 40, 60, 80, 75, 25, 10, 30];
 var clicks = 0;
 
-function removeAllChilds() {
-  document.getElementById("data-container").innerHTML = " ";
+function removeAllChilds(algoritm) {
+  console.log(algoritm)
+  document.getElementById("bubble-sort").innerHTML = "";
 }
 
 function bubbleSort() {
@@ -22,24 +23,35 @@ function bubbleSort() {
   }
 }
 
-function updateGraphic() {
-  removeAllChilds();
+function updateGraphic(algoritm) {
+  removeAllChilds(algoritm);
   values.forEach((bar) => {
     let b = document.createElement("div");
     let height = (bar * 100) / TOTAL_VALUE;
     if (height > 100) height = 100;
     b.style.height = height + "%";
     b.classList.add("bar");
-    document.getElementById("data-container").appendChild(b);
+    document.getElementById("bubble-sort").appendChild(b);
   });
   bubbleSort();
 }
 
 const formHandler = (event) => {
+  let algoritm = event.target.name;
   clicks++;
   event.preventDefault();
+  switch (algoritm) {
+    case "bubbleSort":
+      updateGraphic("bubble-sort");
+    case "selectionSort":
+      updateGraphic("selection-sort");
+    default:
+      updateGraphic("bubble-sort");
+  }
   updateGraphic();
-  form.reset();
+  bubbleSortForm.reset();
+  selectionSortForm.reset();
 };
 
-form.addEventListener("submit", formHandler);
+bubbleSortForm.addEventListener("submit", formHandler);
+selectionSortForm.addEventListener("submit", formHandler);

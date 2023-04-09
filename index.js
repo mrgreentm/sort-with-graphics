@@ -34,7 +34,7 @@ function selectionSort() {
   var aux;
   var minorIndex = 0;
   for (let i = 0; i < values.selectionsort.length; i++) {
-    for (let j = 0; j < values.selectionsort.length; j++) {
+    for (let j = 0; j < values.selectionsort.length - i; j++) {
       if (values.selectionsort[i] > values.selectionsort[minorIndex]) {
         minorIndex = i;
       }
@@ -56,6 +56,7 @@ function updateGraphic(algoritm) {
     document.getElementById(algoritm + "-content").appendChild(b);
   });
   if (algoritm == "bubble-sort") {
+    clicks++;
     bubbleSort();
   }
   if (algoritm == "selection-sort") {
@@ -65,7 +66,6 @@ function updateGraphic(algoritm) {
 
 const formHandler = (event) => {
   let algoritm = event.target.name;
-  clicks++;
   event.preventDefault();
   updateGraphic(algoritm);
   myAudio.play()

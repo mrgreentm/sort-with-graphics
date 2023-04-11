@@ -9,7 +9,8 @@ var values = {
   selectionsort: [...globalValues],
 };
 
-var clicks = 0;
+var clicksBubble = 0;
+var clicksSelection = 0;
 
 function removeAllChilds(algoritm) {
   let element = document.getElementById(algoritm + "-content");
@@ -19,8 +20,8 @@ function removeAllChilds(algoritm) {
 
 function bubbleSort() {
   var aux;
-  for (let i = 0; i < clicks; i++) {
-    for (let j = 0; j < clicks - 1 - i; j++) {
+  for (let i = 0; i < clicksBubble; i++) {
+    for (let j = 0; j < clicksBubble - 1 - i; j++) {
       if (values.bubblesort[j] > values.bubblesort[j + 1]) {
         aux = values.bubblesort[j];
         values.bubblesort[j] = values.bubblesort[j + 1];
@@ -33,10 +34,11 @@ function bubbleSort() {
 function selectionSort() {
   var aux;
   var minorIndex = 0;
-  for (let i = 0; i < values.selectionsort.length; i++) {
-    for (let j = 0; j < values.selectionsort.length - i; j++) {
-      if (values.selectionsort[i] > values.selectionsort[minorIndex]) {
-        minorIndex = i;
+  for (let i = 0; i < clicksSelection; i++) {
+    minorIndex = i;
+    for (let j = i + 1; j < clicksSelection; j++) {
+      if (values.selectionsort[j] < values.selectionsort[minorIndex]) {
+        minorIndex = j;
       }
     }
     aux = values.selectionsort[i];
@@ -53,13 +55,15 @@ function updateGraphic(algoritm) {
     if (height > 100) height = 100;
     b.style.height = height + "%";
     b.classList.add("bar");
-    document.getElementById(algoritm + "-content").appendChild(b);
+    if (height > 0)
+      document.getElementById(algoritm + "-content").appendChild(b);
   });
   if (algoritm == "bubble-sort") {
-    clicks++;
+    clicksBubble++;
     bubbleSort();
   }
   if (algoritm == "selection-sort") {
+    clicksSelection++;
     selectionSort();
   }
 }
@@ -68,7 +72,7 @@ const formHandler = (event) => {
   let algoritm = event.target.name;
   event.preventDefault();
   updateGraphic(algoritm);
-  myAudio.play()
+  myAudio.play();
   bubbleSortForm.reset();
   selectionSortForm.reset();
 };

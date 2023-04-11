@@ -204,3 +204,10 @@ button:hover {
     box-shadow: 7px -11px 0px 7px #393053;
   }
 }
+.reset-button {
+  width: 100%;
+  margin: 0 auto;
+}
+.reset-button:hover {
+  
+}
